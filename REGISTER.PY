@@ -1,4 +1,6 @@
 from tkinter import*
+import pymysql
+from tkinter import messagebox
 
 
 window=Tk()
@@ -18,9 +20,10 @@ def clear_all():
     newpassword_entrybox.delete(0,END)
     confirmpassword_entrybox.delete(0,END)
     
+def log():
+    window.destroy()  
+    import LOGINSCREEN
     
-    
-        
 def HIDE():
     closeeye.config(file="D:\eye (1).png")
     newpassword_entrybox.config(show="*")
@@ -32,6 +35,21 @@ def show():
     newpassword_entrybox.config(show="")
     confirmpassword_entrybox.config(show="")
     eyebutton.config(command=HIDE)
+    
+def connect_database():
+    if name_entrybox.get()=="" or username_entrybox.get()=="" or email_entrybox.get()=="" or newpassword_entrybox.get()=="" or confirmpassword_entrybox.get()=="" :
+        messagebox.showerror("Error","All Fields Are Required")
+    elif newpassword_entrybox != confirmpassword_entrybox:
+         messagebox.showerror("Error","Password Mismatch")
+    else:
+        try:
+            con=pymysql.connect(host='localhost',user0='root',password="1234")
+            mycursor=con.cursor()
+        except:
+            messagebox.showerror("Error","database connecivity problem! please try again after some time")
+            return
+            
+        
     
 pic=Label(window,image=photo,bg="#f5bc8e")    
 pic.place(x=800,y=150)    
@@ -71,11 +89,14 @@ newpassword_entrybox.place(x=280,y=330,width=300,height=30)
 confirmpassword_entrybox=Entry(window,font=(30),bd=3,relief="groove",bg="#c7ffeb")
 confirmpassword_entrybox.place(x=280,y=390,width=300,height=30)
 
-save_button=Button(window,text="SAVE",font=(15),bg="#c7ffeb",relief="groove")
-save_button.place(x=140,y=480,height=40,width=100)
+save_button=Button(window,text="SAVE",font=(15),bg="#c7ffeb",relief="groove",command=connect_database)
+save_button.place(x=100,y=480,height=40,width=100)
+
+login_button=Button(window,text="Login",font=(15),bg="#c7ffeb",relief="groove",command=log)
+login_button.place(x=250,y=480,height=40,width=100)
 
 clear_button=Button(window,text="CLEAR",font=(15),bg="#c7ffeb",relief="groove",command=clear_all)
-clear_button.place(x=360,y=480,height=40,width=100)
+clear_button.place(x=400,y=480,height=40,width=100)
 
 closeeye=PhotoImage(file="D:\hidden.png")
 eyebutton=Button(window,image=closeeye,bd=0,bg="#c7ffeb",activebackground="#c7ffeb",cursor="hand2",command=HIDE)

@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import font
 from tkinter import messagebox
 from tkinter.messagebox import showinfo , showerror
-import pymysql
+
 
 window=Tk()
 window.geometry("1100x600")
@@ -13,27 +13,9 @@ window.config(bg="white")
 photo=PhotoImage(file="D:\login screen.png")
 
 
-
-def on_click(event):    
-    tp1=Toplevel(window)
-    tp1.title("Forget password")
-    tp1.config(bg="white")
-    tp1.iconbitmap(r"D:\user.ico.ico")
-    tp1.geometry("1100x600")
-    tp1.resizable(False,False)
-    tp1.iconbitmap(r"D:\user.ico.ico")
-    
-def register(event):
-    tp=Toplevel(window)
-    tp.title("Register Now")
-    tp.config(bg="white")
-    tp.iconbitmap(r"D:\user.ico.ico")
-    tp.geometry("1100x600")
-    tp.resizable(False,False)
-    # photo1=PhotoImage(file="D:\ register.png")
-    
-    label2=window.Label(tp,text="hii",font=(50))
-    label2.place(x=20,y=90)
+def regi():
+    window.destroy()
+    import REGISTER
     
 def clear_entry():
     entry_box.delete(0,END)
@@ -87,8 +69,9 @@ forget_password.place(x=900,y=355)
 new_user=Label(window,text="New User ?",font=('Microsoft YaHei UI Light',10),bg="white")
 new_user.place(x=760,y=520)
 
-register_here=Label(window,text="Register Here",font=('Microsoft YaHei UI Light',10),bg="white",cursor="hand2")
-register_here.place(x=830,y=519)
+register_here=Button(window,text="Register Here",font=('Microsoft YaHei UI Light',10),bg="white",
+                     activebackground="white",activeforeground="black",cursor="hand2",command=regi)
+register_here.place(x=835,y=517)
 
 
 entry_box=Entry(window,font=(30),textvariable=var,bd=3,relief="groove")
@@ -111,7 +94,7 @@ clear_button.place(x=880,y=430,height=40,width=100)
 custom_font = font.Font(family="Helvetica", size=12)
 
 
-forget_password.bind("<Button-1>", on_click)
-register_here.bind("<Button-1>", register)
+# forget_password.bind("<Button-1>", on_click)
+# register_here.bind("<Button-1>", register)
 
 window.mainloop()
