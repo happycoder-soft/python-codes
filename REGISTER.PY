@@ -39,8 +39,9 @@ def show():
 def connect_database():
     if name_entrybox.get()=="" or username_entrybox.get()=="" or email_entrybox.get()=="" or newpassword_entrybox.get()=="" or confirmpassword_entrybox.get()=="" :
         messagebox.showerror("Error","All Fields Are Required")
-    elif newpassword_entrybox != confirmpassword_entrybox:
+    elif newpassword_entrybox.get() != confirmpassword_entrybox.get():
          messagebox.showerror("Error","Password Mismatch")
+    
     else:
         try:
             con=pymysql.connect(host='localhost',user0='root',password="1234")
@@ -48,6 +49,13 @@ def connect_database():
         except:
             messagebox.showerror("Error","database connecivity problem! please try again after some time")
             return
+        
+        query="create database userdata"
+        mycursor.execute(query)
+        query='use userdata'
+        mycursor.execute(query)
+        query='create table data(id int auto_increment primary key not null, email varchar(50),username varchar(100),password varchar(20))'
+        mycursor.execute(query)
             
         
     
