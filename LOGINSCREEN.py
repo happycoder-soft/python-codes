@@ -13,6 +13,10 @@ window.config(bg="white")
 photo=PhotoImage(file="D:\login screen.png")
 
 
+def forg():
+    window.destroy()
+    import forget
+    
 def regi():
     window.destroy()
     import REGISTER
@@ -63,15 +67,15 @@ username.place(x=650,y=190)
 password=Label(window,text="PASSWORD",font=('Microsoft YaHei UI Light',13),bg="white")
 password.place(x=650,y=290)
 
-forget_password=Label(window,text="Forget Password?",font=('Microsoft YaHei UI Light',10),bg="white",cursor="hand2")
-forget_password.place(x=900,y=355)
+forget_password=Button(window,text="Forget Password?",font=('Microsoft YaHei UI Light',10),bg="white",cursor="hand2",relief="flat",command=forg)
+forget_password.place(x=890,y=355)
 
 new_user=Label(window,text="New User ?",font=('Microsoft YaHei UI Light',10),bg="white")
 new_user.place(x=760,y=520)
 
 register_here=Button(window,text="Register Here",font=('Microsoft YaHei UI Light',10),bg="white",
-                     activebackground="white",activeforeground="black",cursor="hand2",command=regi)
-register_here.place(x=835,y=517)
+                     activebackground="white",activeforeground="black",cursor="hand2",command=regi,relief="flat")
+register_here.place(x=832,y=516)
 
 
 entry_box=Entry(window,font=(30),textvariable=var,bd=3,relief="groove")

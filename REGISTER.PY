@@ -1,5 +1,6 @@
 from tkinter import*
 import pymysql
+import _mysql_connector
 from tkinter import messagebox
 
 
