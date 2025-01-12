@@ -1,5 +1,5 @@
 from tkinter import*
-import pymysql
+import pymysql 
 import _mysql_connector
 from tkinter import messagebox
 
@@ -45,19 +45,28 @@ def connect_database():
     
     else:
         try:
-            con=pymysql.connect(host='localhost',user0='root',password="1234")
+            con=pymysql.connect(host='localhost',user='root',password="Mysql@14714700")
             mycursor=con.cursor()
         except:
             messagebox.showerror("Error","database connecivity problem! please try again after some time")
             return
         
-        query="create database userdata"
-        mycursor.execute(query)
-        query='use userdata'
-        mycursor.execute(query)
-        query='create table data(id int auto_increment primary key not null, email varchar(50),username varchar(100),password varchar(20))'
-        mycursor.execute(query)
-            
+        try:
+            query="create database details"
+            mycursor.execute(query)
+            query='use details'
+            mycursor.execute(query)
+            query='create table DATA(id int auto_increment primary key not null, email varchar(50),username varchar(100),password varchar(20))'
+            mycursor.execute(query)
+        except:
+            mycursor.execute('use details')    
+        
+        query="insert into DATA(email,username,password) values(%s,%s,%s)"
+        mycursor.execute(query,(email_entrybox.get(),username_entrybox.get(),newpassword_entrybox.get()))
+        con.commit()
+        con.close()
+        messagebox.showinfo("success","Registration is Successful")
+        clear_all()
         
     
 pic=Label(window,image=photo,bg="#f5bc8e")    

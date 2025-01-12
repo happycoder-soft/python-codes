@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter import font
 from tkinter import messagebox
 from tkinter.messagebox import showinfo , showerror
-
+import pymysql
 
 window=Tk()
 window.geometry("1100x600")
@@ -26,15 +26,35 @@ def clear_entry():
     entry_box1.delete(0,END)
 
 def connect_database():
-    username1 = entry_box.get()
-    password1 = entry_box1.get()
-    print("id: {}".format(var.get())) 
-    print("pass: {}".format(var2.get())) 
+    # username1 = entry_box.get()
+    # password1 = entry_box1.get()
+    # print("id: {}".format(var.get())) 
+    # print("pass: {}".format(var2.get())) 
      
-    if username1 == "admin" and password1 == "123456789":
-        messagebox.showinfo("Login Successful", "Welcome! Login Successful")
+    # if username1 == "admin" and password1 == "123456789":
+    #     messagebox.showinfo("Login Successful", "Welcome! Login Successful")
+    # else:
+    #     messagebox.showerror("Login Failed", "Invalid username or password")
+    
+    if entry_box.get()=="" or entry_box1.get()=="" :
+           messagebox.showerror("Error0","All Feilds Are Required!")
     else:
-        messagebox.showerror("Login Failed", "Invalid username or password")
+       try:
+           con=pymysql.connect(host="localhost",user="root",password="Mysql@14714700")
+           mycursor=con.cursor()
+       except:
+           messagebox.showerror("Error","Connection lost! Please try again!")
+    
+    query="use details"
+    mycursor.execute(query)
+    query="select * from DATA where username=%s and password=%s"
+    mycursor.execute(query,entry_box.get(),entry_box1.get())
+    row=mycursor.fetchone()
+    if row==None:
+        messagebox.showerror("Error","Invalid Username and Password")
+    else:
+        messagebox.showinfo("Message","Login Successful")
+        
         
         
 def HIDE():
@@ -50,8 +70,8 @@ def show():
     
                             
 
-var=StringVar()
-var2=StringVar() 
+# var=StringVar()
+# var2=StringVar() 
  
 
 
