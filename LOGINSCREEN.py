@@ -48,7 +48,7 @@ def connect_database():
     query="use details"
     mycursor.execute(query)
     query="select * from DATA where username=%s and password=%s"
-    mycursor.execute(query,entry_box.get(),entry_box1.get())
+    mycursor.execute(query,(entry_box.get(),entry_box1.get()))
     row=mycursor.fetchone()
     if row==None:
         messagebox.showerror("Error","Invalid Username and Password")
@@ -98,10 +98,10 @@ register_here=Button(window,text="Register Here",font=('Microsoft YaHei UI Light
 register_here.place(x=832,y=516)
 
 
-entry_box=Entry(window,font=(30),textvariable=var,bd=3,relief="groove")
+entry_box=Entry(window,font=(30),bd=3,relief="groove")
 entry_box.place(x=655,y=220,width=350,height=40)
 
-entry_box1=Entry(window,font=(30),textvariable=var2,bd=3,relief="groove")
+entry_box1=Entry(window,font=(30),bd=3,relief="groove")
 entry_box1.place(x=655,y=320,width=350,height=40)
 
 closeeye=PhotoImage(file="D:\hidden.png")

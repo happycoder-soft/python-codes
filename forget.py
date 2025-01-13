@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import messagebox
 
+import pymysql
+
 
 
 
@@ -16,8 +18,21 @@ def save():
     if username_entrybox.get()=="" or new_password_entrybox.get() =="":
        messagebox.showerror("Error","All Fields Are Required!")
     else:
-       messagebox.showinfo("Message","Your Password Is Successfully Changed!")
-      
+       con=pymysql.connect(host="localhost",user="root",password="Mysql@14714700",database="details")
+       mycursor=con.cursor()
+       query='select * from DATA where username=%s'
+       mycursor.execute(query,(username_entrybox.get()))
+       row=mycursor.fetchone()
+       if row==None:
+           messagebox.showerror("Error","Incorrect username")
+       else:
+           query='update DATA set password=%s where username=%s'
+           mycursor.execute(query,(new_password_entrybox.get(),username_entrybox.get()))
+           con.commit()
+           con.close()
+           messagebox.showinfo("Message","Password is successfully changed")
+           window.destroy()     
+           import LOGINSCREEN
       
 def log():
      window.destroy()
