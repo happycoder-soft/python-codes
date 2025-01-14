@@ -78,7 +78,7 @@ def show():
 label=Label(window,image=photo,bg="white")
 label.place(x=30,y=30)
 
-login=Label(window,text="Login",font=('Microsoft YaHei UI Light',30),bg="white")
+login=Label(window,text="Login",font=('Microsoft YaHei UI Light',40),bg="white")
 login.place(x=780,y=80)
 username=Label(window,text="USERNAME",font=('Microsoft YaHei UI Light',13),bg="white")
 username.place(x=650,y=190)
