@@ -100,27 +100,54 @@ import numpy as np
 # print(np.sqrt(y)) #square root
 
 #AGGERATION FUNCTIONS
-y=np.array([52,90,70,60])
-print(np.sum(y)) #sum of all elements
-print(np.mean(y)) #mean of all elements
-print(np.median(y)) #median of all elements
-print(np.min(y)) #minimum element
-print(np.max(y)) #maximum element       
-print(np.std(y)) #standard deviation
-print(np.var(y)) #variance
+# y=np.array([52,90,70,60])
+# print(np.sum(y)) #sum of all elements
+# print(np.mean(y)) #mean of all elements
+# print(np.median(y)) #median of all elements
+# print(np.min(y)) #minimum element
+# print(np.max(y)) #maximum element       
+# print(np.std(y)) #standard deviation
+# print(np.var(y)) #variance
 
 
-#indexing and slicing
-q=np.array([60,80,60,70,90,20])
-print(q[0]) #first element
-print(q[1]) #second element 
-print(q[-1]) #last element
+# #indexing and slicing
+# q=np.array([60,80,60,70,90,20])
+# print(q[0]) #first element
+# print(q[1]) #second element 
+# print(q[-1]) #last element
 
-#slicing
-print(q[1:4]) #slicing from index 1 to 3
-print(q[:3]) #slicing from start to index 2
-print(q[3:]) #slicing from index 3 to end
-print(q[::2]) #slicing with step size 2
-print(q[::-1])#licing with step size -2 (reverse order)
+# #slicing
+# print(q[1:4]) #slicing from index 1 to 3
+# print(q[:3]) #slicing from start to index 2
+# print(q[3:]) #slicing from index 3 to end
+# print(q[::2]) #slicing with step size 2
+# print(q[::-1])#licing with step size -2 (reverse order)
+
+# #reshaping and transposing
+# a=np.array([[1,2,3],[4,5,6],[7,8,9]])
+# print(a)
+# print(a.reshape(1,9)) #reshaping to 1 row and 9 columns
+# print(a.reshape(9,1)) #reshaping to 9 rows and 1
+# # print(a.T) #transposing the array
+# print(a.ravel()) #flattening the array
+# print(a.flatten()) #flattening the array
+
+# #fancy indexing
+# w=np.array([10,95,85,75,65,35,12])
+# print(w[w>20])
+# print(w[w%2==0 ]) #even numbers
+# print(w[w%2!=0 ]) #odd numbers
+# print(w[[0,5,3]])
+
+#insert method
+# g=np.array([60,80,90,40,50,60,70,80])
+# new_g=np.insert(g,5,80)
+# print(new_g)
+
+# #two dimensional array
+# l=np.array([[1,5],[2,9]])
+# new_l=np.insert(l,2,[65,87],axis=0) #inserting row at index 2
+# print(new_l)
 
 
+#append method
