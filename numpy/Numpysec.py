@@ -151,3 +151,79 @@ import numpy as np
 
 
 #append method
+# q=np.array([80,90,78,95,14,25,95])
+# new_q=np.append(q,[95,78])
+# print(new_q)
+
+#concatenate method
+# c=np.array([[5,9,6],[9,8,7]])
+# d=np.array([[5,9,6],[6,4,1]])
+# new_c=np.concatenate((c,d))
+# print(new_c)
+
+# #delete method
+# d=np.array([80,9,7,80,90,60,40,50])
+# new_d=np.delete(d,5) #deleting element at index 5
+# print(new_d)
+
+# #two dimensional array
+# p=np.array([[6,8],[8,3]])
+# new_p=np.delete(p,1,axis=1) #deleting column at index 1 
+# print(new_p)
+
+#unique method
+# q=np.array([80,90,78,95,14,25,95])
+# unique_q=np.unique(q)
+# print(unique_q)
+
+# #stacking arrays
+# a=np.array([1,2,3])
+# b=np.array([4,5,6])
+# d=np.vstack((a,b)) #vertical stacking
+# print(d)
+# g=np.hstack((a,b)) #horizontal stacking
+# print(g)
+
+
+#splite method
+# f=np.array([10,20,30,40,50,60,70,80,90,96,63,69])
+# split_f=np.split(f,4) #splitting into 3 equal parts
+# split_d=np.split(f,6) #splitting into 2 equal parts
+# print(split_f)
+# print(split_d)
+
+# #brodcasting & vectorization
+# v=np.array([40,80,9,60,80,70,60,20])
+# discount=20
+# final=v-(discount*v/100) #applying discount to each element
+# print(final)
+
+# su=v-20 #subtracting 20 from each element
+# ad=v+200 #adding 200 to each element
+# mul=v*2 #multiplying each element by 2  
+# div=v/2 #dividing each element by 2 
+# print(su)
+# print(ad)
+# print(mul)
+# print(div)
+
+# q=np.array([10,20,30])
+# # w=np.array([40,90,80])
+# # print(q+w) #element-wise addition
+# a=np.array([50])
+# print(q+a) #broadcasting a to q
+# e=np.array([1,8,9])
+# t=np.array([7,8,9])
+# print(e*t) #element-wise multiplication
+
+# handling missing data
+p=np.array([10,50,80,60,np.nan,50,60,np.nan,70])
+# print(np.isnan(p))
+# clean=np.nan_to_num(p,nan=40) #replacing nan with 40
+# print(clean)
+# p2=np.array([10,50,80,60,-np.inf,50,60,np.inf,70])
+# print(np.nan_to_num(p2,posinf=100,neginf=-100)) #replacing inf with 100 and -inf with -100
+
+# #masking
+mask=np.isnan(p)
+print(p[mask])
