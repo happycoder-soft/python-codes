@@ -216,14 +216,30 @@ import numpy as np
 # t=np.array([7,8,9])
 # print(e*t) #element-wise multiplication
 
-# handling missing data
-p=np.array([10,50,80,60,np.nan,50,60,np.nan,70])
+# # handling missing data
+# p=np.array([10,50,80,60,np.nan,50,60,np.nan,70])
 # print(np.isnan(p))
 # clean=np.nan_to_num(p,nan=40) #replacing nan with 40
 # print(clean)
 # p2=np.array([10,50,80,60,-np.inf,50,60,np.inf,70])
 # print(np.nan_to_num(p2,posinf=100,neginf=-100)) #replacing inf with 100 and -inf with -100
 
-# #masking
-mask=np.isnan(p)
-print(p[mask])
+# # #masking
+# mask=np.isnan(p)
+# print(p[mask])
+
+
+# #random modules
+# r=np.random.rand(1,5) #random numbers between 0 and 1
+# print(r)
+# q=np.random.randint(5,50,3) #random integers between 5 and 50
+# # print(q)
+# r=np.random.normal(0,1,2) #random numbers from normal distribution with mean 0 and std 1
+# print(r)
+# e=np.random.choice([10,20,30,40,50],3) #randomly choosing 3 elements from the list
+# # print(e)
+# t=np.random.seed(100) #setting seed for reproducibility
+# # print(np.random.rand(1,5)) #random numbers between 0 and 1 with
+# o=np.random.rand(5,5) #random numbers between 0 and 1 with shape 5x5
+# print(o)
+
