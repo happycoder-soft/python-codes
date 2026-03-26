@@ -5,8 +5,10 @@ import openpyxl
 data = {
     'name':['happy','sachin','shivam','aditya','abhishek'],
     'age':[20,26,24,21,22],
-    'city':['Motihari','Darbhanga','Darbhanga','Hajipur','Khagaria']
+    'city':['Motihari','Darbhanga',None,'Hajipur','Khagaria'],
+    'salary':[100000,60000,55000,45000,80000]
     } 
+
 df=pd.DataFrame(data)
 # print(df)
 # # #save the DataFrame to an Excel/csc/json file
@@ -49,6 +51,54 @@ df=pd.DataFrame(data)
 # high2=df.loc[(df['age']>22) | (df['city']=='Darbhanga')]
 # print('age with more than 22 or city is darbhanga') 
 # print(high2)
+
+# # #using isin() method to select rows with specific values
+# high3=df[df['city'].isin(['Darbhanga','Hajipur'])]
+# print('city is darbhanga or hajipur')
+# print(high3)
+
+# #adding method
+# df['age']=df['age']+5
+# print(df)
+# df['locality']=df['city']+',bihar'
+# print(df)
+
+# #using insert method to add a new column
+# df.insert(3,'country','India')
+# print(df)
+# df.insert(2,'gender','Male')
+# print(df)
+
+# # condition apply
+# df["job_role"] = df["age"].apply(lambda x: "Employee" if x > 22 else "Student")
+# print(df)
+
+# df.to_excel('01.xlsx',index=False)
+# print("DataFrame saved to 01.xlsx")
+
+# #update the data
+# df.loc[1,'age']=23
+# print(df)
+
+# #increase salary by 10%
+# df['salary']=df['salary']*1.1
+# print(df)
+
+# #removing column
+# df.drop(columns=['salary'], inplace=True)
+# print(df)
+
+# #detect missing values
+# print(df.isnull())
+
+#handle missing values by filling with a specific value
+df['city'].fillna('Unknown', inplace=True)
+print(df)   
+
+# #handle missing values by dropping(deleting) rows with missing values
+# df.dropna(inplace=True)
+# print(df)
+
 
 
 
