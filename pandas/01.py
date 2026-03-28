@@ -157,6 +157,8 @@ df=pd.DataFrame(data)
 # print(r)
 
 #grouping data
+g=df.groupby('age')['salary'].sum() #age ke hisab se data ko group karte hai
+print(g)
 
 
 
