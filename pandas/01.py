@@ -3,15 +3,15 @@ from hashlib import new
 import pandas as pd
 import openpyxl
 
-# Create a sample DataFrame using a dictionary
-data = {
-    'name':['happy','sachin','shivam','aditya','abhishek'],
-    'age':[20,26,24,24,22],
-    'city':['Motihari','Darbhanga', 'Darbhanga','Hajipur','Khagaria'],
-    'salary':[100000,60000,55000,45000,80000]
-    } 
+# # Create a sample DataFrame using a dictionary
+# data = {
+#     'name':['happy','sachin','shivam','aditya','abhishek'],
+#     'age':[20,26,24,24,22],
+#     'city':['Motihari','Darbhanga', 'Darbhanga','Hajipur','Khagaria'],
+#     'salary':[100000,60000,55000,45000,80000]
+#     } 
 
-df=pd.DataFrame(data)
+# df=pd.DataFrame(data)
 # print(df)
 # # #save the DataFrame to an Excel/csc/json file
 # # df.to_excel('data.xlsx',index=True)   
@@ -156,12 +156,41 @@ df=pd.DataFrame(data)
 # r=df.sort_values(by=['age','salary','city'],ascending=[True,True,True]) #age ke hisab se ascending order me sort karte hai aur salary ke hisab se descending order me sort karte hai
 # print(r)
 
-#grouping data
-g=df.groupby('age')['salary'].sum() #age ke hisab se data ko group karte hai
-print(g)
+# #grouping data
+# g=df.groupby('age')['salary'].sum().reset_index() #salary ke hisab se data ko group karte hai
+# print(g)
 
+# #multiple grouping
+# g1=df.groupby([ 'age'])['salary'].sum().reset_index() #age aur name ke hisab se data ko group karte hai
+# print(g1)
 
+#aggregation functions
+#merging & joining dataframes
 
+# cus=pd.DataFrame({
+#     'customer_id':[5,6,8,9],
+#     'Name':['Happy','aditya','abhishek','sachin']
+# })
+# order=pd.DataFrame({
+#     'customer_id':[1,8,5,6],
+#     'order amount':[2000,3000,4000,5000]
+# })
+
+# m=pd.merge(cus,order,on='customer_id', how='right') #inner join se dono dataframe ke common value ko merge karte hai
+# print(m)
+    
+
+# m=pd.merge(cus,order,on='customer_id', how='inner') #inner join se dono dataframe ke common value ko merge karte hai
+# print(m)
+    
+
+# m=pd.merge(cus,order,on='customer_id', how='left') #inner join se dono dataframe ke common value ko merge karte hai
+# print(m)
+    
+
+# m=pd.merge(cus,order,on='customer_id', how='outer') #inner join se dono dataframe ke common value ko merge karte hai
+# print(m)
+    
 
 
 
