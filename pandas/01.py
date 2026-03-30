@@ -191,9 +191,34 @@ import openpyxl
 # m=pd.merge(cus,order,on='customer_id', how='outer') #inner join se dono dataframe ke common value ko merge karte hai
 # print(m)
     
+# #concatenating dataframes
+# df1=pd.DataFrame({
+#     'A':['happy','sachin','shivam'],
+#     'B':[4,5,6]
+# })
+# df2=pd.DataFrame({
+#     'A':['alice','bob','charlie'],
+#     'B':[10,11,12]
+# })
+# c=pd.concat([df1,df2], axis=1) #axis 1 se columns ke hisab se concatenate karte hai
+# c=pd.concat([df1,df2], axis=0) #axis 0 se rows ke hisab se concatenate karte hai
 
+# print(c)
 
+# d=pd.merge(df1,df2,on='B',how='inner',suffixes=('_left','_right')) #indicator=True se merge ke baad ek new column add hota hai jisme merge ke type ke baare me information hoti hai
+# print(d)
 
+#concatination with ignore index
+df1=pd.DataFrame({
+    'customer_id':[1,2,3],
+    'Name':['happy','abishek','sachin']
+})
+df2=pd.DataFrame({
+    'customer_id':[4,5,6],
+    'name':['alice','bob','charlie']
+})
+con=pd.concat([df1,df2],axis=0,ignore_index=False) #ignore index se concatenate ke baad index ko reset karte hai
+print(con)
 
 
 
