@@ -208,17 +208,17 @@ import openpyxl
 # d=pd.merge(df1,df2,on='B',how='inner',suffixes=('_left','_right')) #indicator=True se merge ke baad ek new column add hota hai jisme merge ke type ke baare me information hoti hai
 # print(d)
 
-#concatination with ignore index
-df1=pd.DataFrame({
-    'customer_id':[1,2,3],
-    'Name':['happy','abishek','sachin']
-})
-df2=pd.DataFrame({
-    'customer_id':[4,5,6],
-    'name':['alice','bob','charlie']
-})
-con=pd.concat([df1,df2],axis=0,ignore_index=False) #ignore index se concatenate ke baad index ko reset karte hai
-print(con)
+# #concatination with ignore index
+# df1=pd.DataFrame({
+#     'customer_id':[1,2,3],
+#     'Name':['happy','abishek','sachin']
+# })
+# df2=pd.DataFrame({
+#     'customer_id':[4,5,6],
+#     'name':['alice','bob','charlie']
+# })
+# con=pd.concat([df1,df2],axis=0,ignore_index=False) #ignore index se concatenate ke baad index ko reset karte hai
+# print(con)
 
 
 
